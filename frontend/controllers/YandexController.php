@@ -25,6 +25,5 @@ class YandexController extends \yii\web\Controller
         $body = $res->getBody();
         // вывод страницы Яндекса в представление
         return $this->render('yandex', ['body' => $body]);
-        
     }
 }

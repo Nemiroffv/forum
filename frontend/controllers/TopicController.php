@@ -296,6 +296,7 @@ class TopicController extends MainController
             $sum = round($sum / $c, 2);
         }
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        //coment
         if(!Yii::$app->user->isGuest)
 
         return ['percents'=>$sum*20,'rezult'=>$c];
