@@ -1,3 +1,5 @@
 <?php
-echo $body;
+echo $title;
+debug($array);
+
 ?>

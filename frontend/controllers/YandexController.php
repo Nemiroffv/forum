@@ -10,6 +10,7 @@ namespace frontend\controllers;
 use Yii;
 use GuzzleHttp\Client;
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 
@@ -23,7 +24,23 @@ class YandexController extends \yii\web\Controller
         $res = $client->request('GET', 'http://www.neurod.ru');
         // получаем данные между открывающим и закрывающим тегами body
         $body = $res->getBody();
+
+
         // вывод страницы Яндекса в представление
-        return $this->render('yandex', ['body' => $body]);
+        $document =\phpQuery::newDocumentHTML($body);
+        $imgs=$document['img'];
+        $array=[];
+        foreach ($imgs as $img) {
+            // Note: $img must be used like "pq($img)"
+          $pg=pq($img)->attr('src');
+          array_push($array,$pg);
+        }
+
+
+
+        $title = $document->find(".news_title");
+
+        return $this->render('yandex', ['array' => $array]);
+
     }
 }
