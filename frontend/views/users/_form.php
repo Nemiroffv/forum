@@ -33,8 +33,8 @@ use yii\widgets\ActiveForm;
     <?php
 
 
-
 $photosc=Yii::$app->user->identity['photo_big'];
+
     if($model->image){echo Html::img(Yii::getAlias(Yii::$app->params['images']['user']['webPath']) . '/' .
         \common\components\IdToPath::get($model->id) . '/b_' .$model->image); 'Аватарка';}
         else echo Html::img($photosc);

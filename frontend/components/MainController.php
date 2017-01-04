@@ -52,6 +52,7 @@ class MainController extends Controller
                         unlink($imagePath . DIRECTORY_SEPARATOR . $prefix . '_' . $old_image);
                     }
                 }
+
                 $model->save(false);
             }
         } else {

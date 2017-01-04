@@ -197,6 +197,7 @@ if($d>0){
         <script src="//yastatic.net/share2/share.js"></script>
         <div class="ya-share2" data-services="collections,vkontakte,facebook,odnoklassniki,moimir"></div>
     </div>
+<?php ?>
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -209,7 +210,8 @@ if($d>0){
             ],
             'creation_date',
             [   'attribute'=>'image',
-                'value'=>Html::img(Yii::getAlias(Yii::$app->params['images']['topic']['webPath']) . '/' . \common\components\IdToPath::get($model->id, null, true, false, true) . '/b_' .$model->image),
+                'value'=>$model->creator->id==3?Html::img(Yii::getAlias('/'.'images/topic/sfw/1.jpg')):
+                    Html::img(Yii::getAlias(Yii::$app->params['images']['topic']['webPath']) . '/' . \common\components\IdToPath::get($model->id, null, true, false, true) . '/b_' .$model->image),
                 'format'=>'html'
             ],
             [    'attribute'=>'content',

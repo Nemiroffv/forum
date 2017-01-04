@@ -25,6 +25,7 @@ class IdToPath
     {
         if (!$basePath) {
             $basePath = \Yii::getAlias(\Yii::$app->params['imagePath']);
+           // debug($basePath);die(); C:/OpenServer/OpenServer/domains/forum/frontend/web/images
 
         }
         if (!file_exists($basePath)) {
@@ -51,8 +52,11 @@ class IdToPath
             }
         }
         $way = str_split((string)$id);
+        //debug($way);die(); (1,5,0)
         $fullPath = $basePath . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, $way);
+        //debug($fullPath);die();C:/OpenServer/OpenServer/domains/forum/frontend/web/images\1\5\0
         if (file_exists($fullPath) || !$createIfNotExists) {
+          //  debug($fullPath);die();C:/OpenServer/OpenServer/domains/forum/frontend/web/images\1\5\0
             return $fullName ? $fullPath : implode($toUrl ? '/' : DIRECTORY_SEPARATOR, $way);
         }
         $pathToCreate = $basePath;

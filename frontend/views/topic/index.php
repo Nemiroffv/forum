@@ -81,6 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'name',
                 'value'=>function($data){
+                if($data->creator->id==3)return Html::img(Yii::getAlias('/'.'images/topic/sfw/1.jpg'));else
         //var_dump(Yii::getAlias(Yii::$app->params['images']['topic']['webPath']) . '/' . \common\components\IdToPath::get($data->id) . '/b_' .$data->image);die();
                     //$id=str_replace(".","/",$data->id/10);
 

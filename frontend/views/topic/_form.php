@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 use common\models\User;
 
+
 /* @var $this yii\web\View */
 /* @var $model common\models\Topic */
 /* @var $form yii\widgets\ActiveForm */
@@ -29,8 +30,15 @@ use common\models\User;
         ],
     ])->label('Поместите текст топика сюда'); ?>
 
-    <?php echo $model->image ? Html::img(Yii::getAlias(Yii::$app->params['images']['topic']['webPath']) . '/' . \common\components\IdToPath::get($model->id) . '/b_' .$model->image)  : '';?>
-    <?= $form->field($model, 'image')->fileInput() ?>
+    <?php
+
+    echo $model->image ? Html::img(Yii::getAlias(Yii::$app->params['images']['topic']['webPath']) . '/' . \common\components\IdToPath::get($model->id) . '/b_' .$model->image)  : '';?>
+    <?=
+
+    $form->field($model, 'image')->fileInput();
+
+
+    ?>
 
     <?php echo $model->image ? $form->field($model, 'delete_image')->checkBox(['label' => 'Delete Image']) : '' ?>
 

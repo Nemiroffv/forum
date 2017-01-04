@@ -179,7 +179,9 @@ class TopicController extends MainController
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            $this->uploadImage($model, 'image');
+
+          $this->uploadImage($model, 'image');
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
